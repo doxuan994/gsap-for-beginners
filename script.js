@@ -8,9 +8,12 @@
 // TweenLite.to(lastItem, 1, { opacity: 0, y: 50 });
 
 
-let img = document.getElementById('img');
-let h2 = document.getElementsByTagName('h2');
-console.log(h2);
+
+
+
+// let img = document.getElementById('img');
+// let h2 = document.getElementsByTagName('h2');
+// console.log(h2);
 
 // TweenLite.to(img, 1, { width: 100 });
 // TweenLite.to(img, 1, { x: 200 });
@@ -20,42 +23,62 @@ console.log(h2);
 // TweenLite.from(img, 1, { x: -200, ease: SteppedEase.config(20) });
 // TweenLite.from(h2, 1, { autoAlpha: 0, delay: 1 });
 
-let i = 0;
-
-TweenLite.from(img, 1, {
-    x: -200,
-    ease: Power1.easeInOut,
-    onStart: onStart,
-    onUpdate: onUpdate,
-    onComplete: onComplete
-});
-
-function onStart() {
-    console.log("onStart");
-}
-
-function onUpdate() {
-    console.log("onUpdate");
-
-    h2[0].innerHTML = "" + i++;
-}
-
-function onComplete() {
-    console.log("onComplete");
-}
-
-
+// let i = 0;
+//
+// TweenLite.from(img, 1, {
+//     x: -200,
+//     ease: Power1.easeInOut,
+//     onStart: onStart,
+//     onUpdate: onUpdate,
+//     onComplete: onComplete
+// });
+//
+// function onStart() {
+//     console.log("onStart");
+// }
+//
+// function onUpdate() {
+//     console.log("onUpdate");
+//
+//     h2[0].innerHTML = "" + i++;
+// }
+//
+// function onComplete() {
+//     console.log("onComplete");
+// }
 
 
 
 
+let img = document.getElementById('img');
+let h2 = document.querySelector('h2');
+let h1 = document.getElementsByTagName('h1');
+let intro = document.getElementsByClassName('intro');
+let listItem = document.querySelectorAll('ul li');
+console.log(listItem);
+
+
+let tl = new TimelineLite();
+
+
+// tl
+// .from(h1, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut, delay: 0.2 })
+// .from(intro, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut, delay: 0.4 })
+// .from(img, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut, delay: 0.6 })
+// .from(h2, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut, delay: 0.8 })
+// .from(listItem, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut, delay: 1 });
 
 
 
 
 
 
-
+tl
+.from(h1, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut })
+.from(intro, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(img, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(h2, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(listItem, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15');
 
 
 
