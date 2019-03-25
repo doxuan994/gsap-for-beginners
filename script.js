@@ -16,5 +16,5 @@ let h2 = document.getElementsByTagName('h2');
 // TweenLite.from(img, 1, { x: -200 });
 // TweenLite.fromTo(img, 1, { x: -200 }, { x: 200 });
 // TweenLite.set(img, { x: -200 });
-TweenLite.from(img, 1, { x: -200 });
+TweenLite.from(img, 1, { x: -200, ease: SteppedEase.config(20) });
 TweenLite.from(h2, 1, { autoAlpha: 0, delay: 1 });
