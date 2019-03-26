@@ -57,8 +57,18 @@ let intro = document.getElementsByClassName('intro');
 let listItem = document.querySelectorAll('ul li');
 console.log(listItem);
 
+let tl = new TimelineLite({paused: true});
 
-let tl = new TimelineLite();
+
+let dot = document.getElementsByClassName('dot');
+console.log(dot);
+let loader = document.getElementById('loader');
+console.log(loader);
+
+
+// tlLoader = new TimelineLite();
+tlLoader = new TimelineMax({repeat: -1});
+
 
 
 // tl
@@ -89,16 +99,57 @@ let tl = new TimelineLite();
 // .from(h2, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, 2)
 // .from(listItem, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, 2.5);
 
+// let buttons = document.querySelectorAll('button');
+// let buttons = document.getElementsByClassName('button');
+let buttons = document.getElementsByTagName('button');
+console.log(buttons);
 
 
+
+// Staggering Animations
 tl
-.from(h1, 1, { y: -15, autoAlpha: 0, ease: Power1.easeOut })
-.from(intro, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
-.from(img, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
-.from(h2, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
-.from(listItem, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut });
+.from(h1, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut })
+.from(intro, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(img, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(h2, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.from(listItem, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut }, '-=0.15')
+.staggerFrom(buttons, 0.2, { x: 200, ease: Power1.easeOut }, 0.1);
 
-tl.pause();
+// tl.pause();
+
+
+// Loader Timeline
+
+
+
+tlLoader
+    .staggerFromTo(dot, 0.3,
+        { y: 0, autoAlpha: 0 },
+        { y: 20, autoAlpha: 1, ease: Back.easeInOut },
+        0.05
+    )
+    .fromTo(loader, 0.3,
+        { autoAlpha: 1, scale: 1.3 },
+        { autoAlpha: 0, scale: 1, ease: Power0.easeNone },
+        0.9
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let btnPlay = document.getElementById('btnPlay');
 let btnPause = document.getElementById('btnPause');
@@ -112,39 +163,39 @@ let btnRestart = document.getElementById('btnRestart');
 
 
 btnPlay.addEventListener('click', function() {
-    tl.play();
+tl.play();
 }, false);
 
 btnPause.addEventListener('click', function() {
-    tl.pause();
+tl.pause();
 }, false);
 
 btnResume.addEventListener('click', function() {
-    tl.resume();
+tl.resume();
 }, false);
 
 btnReserve.addEventListener('click', function() {
-    tl.reverse();
+tl.reverse();
 }, false);
 
 btnSpeedUp.addEventListener('click', function() {
-    tl.timeScale(2);
+tl.timeScale(2);
 }, false);
 
 btnSlowDown.addEventListener('click', function() {
-    tl.timeScale(0.5);
+tl.timeScale(0.5);
 }, false);
 
 btnSeek.addEventListener('click', function() {
-    tl.seek(1);
+tl.seek(1);
 }, false);
 
 btnProgress.addEventListener('click', function() {
-    tl.progress(0.5);
+tl.progress(0.5);
 }, false);
 
 btnRestart.addEventListener('click', function() {
-    tl.restart();
+tl.restart();
 }, false);
 
 
