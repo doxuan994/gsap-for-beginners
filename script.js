@@ -92,16 +92,60 @@ let tl = new TimelineLite();
 
 
 tl
-.from(h1, 0.3, { y: -15, autoAlpha: 0, ease: Power1.easeOut })
-.add('intro')
-.from(intro, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
-.from(img, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, 'intro')
-.from(h2, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, 'intro+=3')
-.from(listItem, 0.3, { y:-15, autoAlpha: 0, ease: Power1.easeOut }, 'intro');
+.from(h1, 1, { y: -15, autoAlpha: 0, ease: Power1.easeOut })
+.from(intro, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
+.from(img, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
+.from(h2, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut })
+.from(listItem, 1, { y:-15, autoAlpha: 0, ease: Power1.easeOut });
+
+tl.pause();
+
+let btnPlay = document.getElementById('btnPlay');
+let btnPause = document.getElementById('btnPause');
+let btnResume = document.getElementById('btnResume');
+let btnReserve = document.getElementById('btnReserve');
+let btnSpeedUp = document.getElementById('btnSpeedUp');
+let btnSlowDown = document.getElementById('btnSlowDown');
+let btnSeek = document.getElementById('btnSeek');
+let btnProgress = document.getElementById('btnProgress');
+let btnRestart = document.getElementById('btnRestart');
 
 
+btnPlay.addEventListener('click', function() {
+    tl.play();
+}, false);
 
+btnPause.addEventListener('click', function() {
+    tl.pause();
+}, false);
 
+btnResume.addEventListener('click', function() {
+    tl.resume();
+}, false);
+
+btnReserve.addEventListener('click', function() {
+    tl.reverse();
+}, false);
+
+btnSpeedUp.addEventListener('click', function() {
+    tl.timeScale(2);
+}, false);
+
+btnSlowDown.addEventListener('click', function() {
+    tl.timeScale(0.5);
+}, false);
+
+btnSeek.addEventListener('click', function() {
+    tl.seek(1);
+}, false);
+
+btnProgress.addEventListener('click', function() {
+    tl.progress(0.5);
+}, false);
+
+btnRestart.addEventListener('click', function() {
+    tl.restart();
+}, false);
 
 
 
