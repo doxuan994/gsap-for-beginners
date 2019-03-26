@@ -1,0 +1,103 @@
+body {
+    background: gold;
+}
+#boxHTML {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(43, 77, 102, 0.8);
+    position: relative;
+}
+#boxHTML p {
+    margin: 0;
+    font-size: 40px;
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+#htmlDOT {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #B1DEC7;
+}
+
+#boxHTML, #boxSVG {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* .perspective {
+    position: absolute;
+    perspective: 600px;
+    height: 100%;
+    width: 100%;
+} */
+
+#btnNext {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#btnPrev {
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
